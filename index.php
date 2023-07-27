@@ -17,10 +17,6 @@
             <table align="center">
                 <tr>
                     <td>
-                        <label for="Homem">Homem: </label>
-                        <input type="text" name="homem">
-                    </td>
-                    <td>
                         <button type="submit" name="jo" value="0">
                             <img src="img/jo.png" width="150" height="120">
                         </button>
@@ -35,26 +31,19 @@
                             <img src="img/po.png" width="150" height="120">
                         </button>
                     </td>
-                    <td>
-                        <label for="Maquina">Máquina: </label>
-                        <input type="text" name="maquina">
-                    </td>
                 </tr>
             </table>
         </fieldset>
     </form>
 
     <?php
-        //Pontuação
-        $computador = 0; $homem = 0;
-
 
             if(isset($_POST["jo"])){
                 jogar($_POST["jo"]);
-            } else if(isset($_POST["ken"])){
+            }else if(isset($_POST["ken"])){
                 jogar($_POST["ken"]);
-            } else if(isset($_POST["po"])){
-                jogar($_POST["po"]);                
+            }else if(isset($_POST["po"])){
+                jogar($_POST["po"]);
             }
 
             function jogar($op){
@@ -75,23 +64,20 @@
 
                 if($op == $lance){
                     echo "<h3> Empate </h3>";
-                } else if($op == 0 and $lance == 2){
-                    echo "<h3> Você venceu! </h3>";
-                    $_POST["homem"]+=1;
+                }else if($op == 0 and $lance == 2){
+                    echo "<h3> Você venceu! </h3>";                    
                 }else if($op == 1 and $lance == 0){
                     echo "<h3> Você venceu! </h3>";
-                    $_POST["homem"]+=1;
                 }else if($op == 2 and $lance == 1){
                     echo "<h3> Você venceu! </h3>";
-                    $_POST["homem"]+=1;
                 }else{
                     echo "<h3> Você perdeu! </h3>";
-                    $_POST["maquina"]+=1;
                 }
 
                 echo " </center>";
 
             }
+
     ?>
 
 </body>
